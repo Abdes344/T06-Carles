@@ -191,4 +191,4 @@ Fem clic a “Otro usuario” i introduïm les credencials en format t.gestio@tr
 L’usuari test gestio ha pogut entrar. Si obrim “Este equipo”, veurem la unitat Z: que apunta a la seua carpeta personal. Repetim la prova amb t.magatzem i t.gerencia i tots funcionen.
 
 
-*Guia elaborada per a l’assignatura SOX – Desplegament de dominis.*
+
