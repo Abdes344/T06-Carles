@@ -20,7 +20,7 @@ Per organitzar millor els usuaris i equips, crearem unes OUs pròpies. La tasca 
 
 ![Creació de l'OU Magatzem](/Tasca06/IMG/5.png)
 
-Aqui estem creant una OU anomenada **Magatzem** directament a l’arrel del domini. Fixa’t que marquem “Protegir contenidor contra eliminació accidental” per evitar esborrar‑la sense voler.
+Aqui estem creant una OU anomenada **Magatzem** directament a l’arrel del domini. 
 
 També hem creat les OUs **Gestio** i **Gerencia** (no es veuen a la captura, però seguint el mateix procediment). Després, dins d’una OU pare anomenada **Usuaris**, hi hem ficat aquestes tres OUs departamentals. Així queda més net:
 
@@ -43,7 +43,7 @@ Els grups que ens demanen són: **gestio**, **magatzem**, **gerencia** i **perso
 
 ![Creació del grup Grup_Global](/Tasca06/IMG/6.png)
 
-Primer creem un grup anomenat Grup_Global (aquesta captura és un exemple, però després crearem els quatre grups). Fixa’t que l’àmbit és **Global** i tipus **Seguretat**.
+Primer creem un grup anomenat Grup_Global
 
 ![Llista de grups creats](/Tasca06/IMG/7.png)
 
