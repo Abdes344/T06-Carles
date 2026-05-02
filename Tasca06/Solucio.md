@@ -12,8 +12,6 @@ Aquesta captura mostra el menú d’eines del Windows Server. Seleccionem **Acti
 
 Des d’ací podem veure l’estructura inicial del domini (contenidors per defecte com Builtin, Computers, `Domain Controllers, etc.). Més endavant afegirem les nostres pròpies unitats organitzatives.
 
-> **Anàlisi:** Utilitzem aquestes eines perquè són les estàndard en entorns Windows Server. Ens permeten gestionar tots els objectes del domini de manera gràfica i ordenada.
-
 ---
 
 ## 2. Creació de l’estructura d’unitats organitzatives (OU)
@@ -37,8 +35,6 @@ També hem creat les OUs **Gestio** i **Gerencia** (no es veuen a la captura, pe
 
 A la creació de la plantilla _plantilla-gestio veiem que la ruta és …/Usuaris/Gestio. Això confirma que l’estructura d’OUs està funcionant.
 
-> **Anàlisi:** Les OUs ens permeten aplicar polítiques diferents a cada departament, delegar control i mantenir l’ordre. Separar usuaris per àrees facilita l’administració futura.
-
 ---
 
 ## 3. Creació dels grups de seguretat
@@ -56,8 +52,6 @@ Ací veiem tots els grups demanats: gestio, magatzem, gerencia i personal. A mé
 ![Membres del grup personal](/Tasca06/IMG/8.png)
 
 En obrir les propietats del grup personal, a la pestanya **Members** hi afegim els grups gerencia, gestio i magatzem. D’aquesta manera, qualsevol usuari que sigui membre d’algun d’aquests tres departaments també serà membre indirecte de personal (herència de grups).
-
-> **Anàlisi:** Els grups globals són els més habituals per organitzar usuaris del mateix domini. Fer que personal contingui els departaments simplifica donar permisos comuns a tots els treballadors (per exemple, accés a una impressora compartida).
 
 ---
 
@@ -85,7 +79,6 @@ Modifiquem l’entrada del grup **Users** perquè només pugui **Llegir** i **Cr
 
 A la finestra de **Compartició** donem permisos de **Lectura** al grup Domain Users. Així tothom pot veure la carpeta, però els permisos NTFS ja restringiran més endavant.
 
-> **Anàlisi:** Separar permisos NTFS (a nivell de sistema de fitxers) de permisos de compartició (a nivell de xarxa) és una bona pràctica de seguretat. Bloquejar l’heretatge evita que carpetes pare (com E:\) puguin donar permisos massa amplis.
 
 ---
 
@@ -107,7 +100,6 @@ A la pestanya **Profile** indiquem la unitat Z: que connectarà a \\DC13\persona
 
 Repetim el mateix procediment per a les plantilles _plantilla-magatzem i _plantilla-gerencia, cadascuna al seu grup corresponent.
 
-> **Anàlisi:** Les plantilles garanteixen que tots els usuaris del mateix departament tinguin la mateixa configuració inicial. A més, si alguna vegada cal canviar alguna cosa (per exemple, la ruta de la carpeta personal), només ho modifiquem en la plantilla i els futurs usuaris ho heretaran.
 
 ---
 
@@ -129,7 +121,7 @@ Repetim per a magatzem (usuari t.magatzem) i gerencia (usuari t.gerencia).
 
 Quan l’usuari inicia sessió per primera vegada, el sistema crea la seva carpeta personal dins E:\personal\gestio (o magatzem, gerencia). Aquí ja veiem les carpetes t.gestio, t.magatzem, t.gerencia i també les de departament.
 
-> **Anàlisi:** Copiar plantilles és molt més ràpid que crear cada usuari des de zero. A més, evitem errors de configuració perquè tots hereten la mateixa base.
+
 
 ---
 
@@ -141,7 +133,6 @@ Abans que el client es connecti, hem de donar d’alta l’objecte de l’equip 
 
 Dins del contenidor Computers (o millor dins la OU Equips que hauríem creat per organitzar), creem un nou equip amb nom PC-1. El camp “El següent usuari o grup pot unir aquest equip al domini” per defecte és Domain Admins, que és correcte.
 
-> **Anàlisi:** Preaprovisionar l’equip permet controlar qui pot unir‑lo al domini i assegura que l’objecte ja existeix abans de connectar‑lo, útil en entorns grans.
 
 ---
 
